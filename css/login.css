@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5;
+    color: #333;
+    min-height: 100vh;
+    position: relative;
+}
+
+.paws {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+}
+
+header {
+    background-color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.logo h1 {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #FF69B4;
+}
+
+nav a.active {
+    color: #FF69B4;
+    border-bottom: 2px solid #FF69B4;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.login-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 3rem;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.login-container h1 {
+    color: #FF69B4;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #FF69B4;
+    outline: none;
+}
+
+.remember-me {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.checkbox,
+.password-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+button {
+    background-color: #FF69B4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #FF1493;
+}
+
+.login-container a {
+    color: #FF69B4;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: color 0.3s;
+}
+
+.login-container a:hover {
+    color: #FF1493;
+    text-decoration: underline;
+}
+
+.forgot-password {
+    margin-top: 1.5rem;
+}
+
+.login-container p {
+    color: #666;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .logo {
+        margin-bottom: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    main {
+        padding-top: 150px;
+        padding-bottom: 2rem;
+    }
+    
+    .login-container {
+        padding: 2rem;
+    }
+}

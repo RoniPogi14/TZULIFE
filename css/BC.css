@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #F5F5F5;
+    color: #000;
+}
+
+.paws {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Header Styles */
+header {
+    background-color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.logo h1 {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #FF69B4;
+}
+
+nav a.active {
+    color: #FF69B4;
+    border-bottom: 2px solid #FF69B4;
+}
+
+/* Back Button Styling */
+.back-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #65084a;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.back-button:hover {
+    background-color: rgb(236, 32, 195);
+}
+
+/* About Section */
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 150px;
+}
+
+/* Image Container */
+.about-image {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+}
+
+.about-image img:first-child {
+    width: 450px; /* Adjust the size */
+    height: auto;
+    border-radius: 30px;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 90%, 0% 100%);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.about-image img:last-child {
+    width: 450px;
+    height: auto;
+}
+
+.about-text {
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    border: 1px solid #ddd; /* Optional border for visibility */
+    margin-bottom: 20px; /* Space between text and table */
+    text-align: center;
+    font-size: 18px;
+}
+
+.about-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Table Styling */
+.symptoms-table {
+    width: 90%;
+    margin: 50px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    margin-top: -125px;
+}
+
+.symptoms-table th {
+    padding: 15px 20px;
+    text-align: center;
+    border-top: 3px solid #030303;
+    border-bottom: 3px solid #030303;
+}
+
+.symptoms-table td {
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 16px;
+    border-bottom: 2px solid #5a5757;
+    border-top: 2px solid #5a5757;
+}
+
+.symptoms-table th {
+    background-color: #FF69B4;
+    color: rgb(6, 6, 6);
+    font-size: 1.1rem;
+}
+
+.symptoms-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+main {
+    padding-top: 150px;
+}
+
+

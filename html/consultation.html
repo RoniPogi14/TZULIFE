@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TzuLife Consultation</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Inline styles -->
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+        width: 250px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+    }
+
+    .logo-container {
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .logo img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    .brand-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .nav-links {
+        padding: 16px;
+        flex: 1;
+    }
+
+    .nav-links ul {
+        list-style: none;
+    }
+
+    .nav-links li {
+        margin-bottom: 24px;
+    }
+
+    .nav-links a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #666;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        background-color: #f5f5f5;
+        color: #FF69B4;
+    }
+
+    .nav-links a.active {
+        color: #FF69B4;
+        font-weight: bold;
+        background-color: #f9f9f9;
+        border-left: 3px solid #FF69B4;
+    }
+
+    .nav-links i {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Main Content Styles */
+    .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: #F5F5F5;
+        overflow-y: auto;
+    }
+
+    .header {
+        background-color: white;
+        padding: 16px 24px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .user-info {
+        text-align: right;
+        margin-right: 8px;
+    }
+
+    .user-name {
+        font-weight: 500;
+        color: #333;
+    }
+
+    /* Consultation Styles */
+    .consultation-container {
+        flex: 1;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .consultation-header {
+        background-color: #FF69B4;
+        padding: 16px 24px;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .consultation-step {
+        padding: 24px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        margin: 20px;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .consultation-step h2 {
+        font-size: 22px;
+        color: #333;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .instruction {
+        color: #666;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    /* Form Elements */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .styled-select, .styled-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: white;
+        transition: border-color 0.3s;
+    }
+
+    .styled-select:focus, .styled-input:focus {
+        border-color: #FF69B4;
+        outline: none;
+    }
+
+    .meal-time-container {
+        display: flex;
+        gap: 10px;
+    }
+
+    .meal-time-container .styled-input,
+    .meal-time-container .styled-select {
+        flex: 1;
+    }
+
+    /* Symptoms Section */
+    .symptoms-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .symptom-button {
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 14px;
+    }
+
+    .symptom-button:hover {
+        background-color: #eee;
+    }
+
+    .symptom-button.selected {
+        background-color: #FF69B4;
+        color: white;
+        border-color: #FF69B4;
+    }
+
+    .selected-symptoms {
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #eee;
+    }
+
+    .selected-symptoms h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .selected-symptoms ul {
+        list-style: none;
+    }
+
+    .selected-symptoms li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .selected-symptoms li:last-child {
+        border-bottom: none;
+    }
+
+    .selected-symptoms .no-symptoms {
+        color: #999;
+        font-style: italic;
+    }
+
+    .remove-symptom {
+        background: none;
+        border: none;
+        color: #999;
+        cursor: pointer;
+        font-size: 14px;
+        transition: color 0.3s;
+    }
+
+    .remove-symptom:hover {
+        color: #FF69B4;
+    }
+
+    /* Button Styles */
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .primary-button, .secondary-button, .submit-button {
+        padding: 12px 24px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+    }
+
+    .primary-button {
+        background-color: #FF69B4;
+        color: white;
+    }
+
+    .primary-button:hover {
+        background-color: #FF1493;
+    }
+
+    .primary-button:disabled {
+        background-color: #ffb6c1;
+        cursor: not-allowed;
+    }
+
+    .secondary-button {
+        background-color: #f5f5f5;
+        color: #666;
+        border: 1px solid #ddd;
+    }
+
+    .secondary-button:hover {
+        background-color: #eee;
+    }
+
+    .secondary-button:disabled {
+        color: #ccc;
+        cursor: not-allowed;
+    }
+
+    .submit-button {
+        background-color: #9370DB;
+        color: white;
+    }
+
+    .submit-button:hover {
+        background-color: #8A2BE2;
+    }
+
+    /* Question Styles */
+    .question {
+        margin-bottom: 30px;
+    }
+
+    .question h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .options-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .option input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    .option label {
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .text-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .text-input:focus {
+        border-color: #FF69B4;
+        outline: none;
+    }
+
+    /* Progress bar */
+    .progress-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 8px;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 8px;
+    }
+
+    .progress {
+        height: 100%;
+        background-color: #FF69B4;
+        transition: width 0.3s ease;
+    }
+
+    .progress-text {
+        text-align: right;
+        font-size: 14px;
+        color: #888;
+    }
+
+    /* Results Styles */
+    .result-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        border: 1px solid #eee;
+    }
+
+    .result-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        gap: 15px;
+    }
+
+    .result-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        color: #FF69B4;
+    }
+
+    .result-title {
+        flex: 1;
+    }
+
+    .result-title h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: #666;
+    }
+
+    .result-status {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .result-status.mild {
+        color: #4CAF50;
+    }
+
+    .result-status.moderate {
+        color: #FF9800;
+    }
+
+    .result-status.critical {
+        color: #F44336;
+    }
+
+    .result-description {
+        margin-bottom: 20px;
+        line-height: 1.6;
+        color: #666;
+    }
+
+    .recommendation-section h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .recommendation-section ul {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+    .recommendation-section li {
+        margin-bottom: 10px;
+        line-height: 1.5;
+        color: #666;
+    }
+
+    /* Utility Classes */
+    .hidden {
+        display: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        body {
+            flex-direction: column;
+            height: auto;
+            overflow: auto;
+        }
+        
+        .sidebar {
+            width: 100%;
+            height: auto;
+        }
+        
+        .logo-container {
+            justify-content: center;
+        }
+        
+        .nav-links ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .nav-links li {
+            margin-bottom: 10px;
+        }
+        
+        .button-group {
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .button-group button {
+            width: 100%;
+        }
+        
+        .meal-time-container {
+            flex-direction: column;
+        }
+        
+        .symptom-button {
+            flex-grow: 1;
+        }
+        
+        .result-header {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="../images/TzuLife-logo.png" alt="TzuLife Logo">
+            </div>
+            <h1 class="brand-name">TZULIFE</h1>
+        </div>
+        
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="consultation.html" class="active">
+                        <i class="fas fa-stethoscope"></i>
+                        <span>Consultation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="myshih.html">
+                        <i class="fas fa-dog"></i>
+                        <span>My Shih Tzu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dogfood.html">
+                        <i class="fas fa-utensils"></i>
+                        <span>Recommended Dog Food</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="history.html">
+                        <i class="fas fa-history"></i>
+                        <span>Track History</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="logout.html">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <div class="user-profile">
+                <div class="user-info">
+                    <span class="user-name">Welcome, User</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="consultation-container">
+            <div class="consultation-header">Health Assessment</div>
+            
+            <!-- Step 1: Pet Information -->
+            <div id="step-1" class="consultation-step">
+                <h2>Pet Information</h2>
+                <div class="form-group">
+                    <label for="pet-select">Select your Shih Tzu:</label>
+                    <select id="pet-select" class="styled-select">
+                        <option value="" disabled selected>Select your Shih Tzu</option>
+                        <option value="1">Fluffy</option>
+                        <option value="2">Buddy</option>
+                        <option value="3">Max</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pet-age">Age Range:</label>
+                    <select id="pet-age" class="styled-select">
+                        <option value="" disabled selected>Select age range</option>
+                        <option value="puppy">0-12 months</option>
+                        <option value="young">1-3 years</option>
+                        <option value="adult">4-7 years</option>
+                        <option value="senior">8+ years</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pet-weight">Weight Range:</label>
+                    <select id="pet-weight" class="styled-select">
+                        <option value="" disabled selected>Select weight range</option>
+                        <option value="small">1-3 kg</option>
+                        <option value="medium">4-7 kg</option>
+                        <option value="large">7+ kg</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Last Meal Time:</label>
+                    <div class="meal-time-container">
+                        <input type="date" id="meal-date" class="styled-input">
+                        <select id="meal-time" class="styled-select">
+                            <option value="morning">Morning</option>
+                            <option value="night">Night</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <div></div> <!-- Empty div for spacing -->
+                    <button type="button" id="proceed-to-symptoms" class="primary-button">Next: Select Symptoms</button>
+                </div>
+            </div>
+            
+            <!-- Step 2: Select Symptoms -->
+            <div id="step-2" class="consultation-step hidden">
+                <h2>Select Symptoms</h2>
+                <p class="instruction">Select all symptoms that apply to your pet:</p>
+                
+                <div class="symptoms-container">
+                    <!-- Symptoms will be dynamically loaded here -->
+                </div>
+                
+                <div class="selected-symptoms">
+                    <h3>Selected Symptoms:</h3>
+                    <ul id="selected-symptoms-list"></ul>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" id="back-to-pet" class="secondary-button">Back</button>
+                    <button type="button" id="proceed-to-questions" class="primary-button">Next: Follow-up Questions</button>
+                </div>
+            </div>
+            
+            <!-- Step 3: Follow-up Questions -->
+            <div id="step-3" class="consultation-step hidden">
+                <h2>Follow-up Questions</h2>
+                <div id="question-container">
+                    <!-- Questions will be dynamically loaded here -->
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" id="question-progress"></div>
+                    </div>
+                    <div class="progress-text">Question <span id="current-question">1</span> of <span id="total-questions">5</span></div>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" id="prev-question" class="secondary-button">Previous</button>
+                    <button type="button" id="next-question" class="primary-button">Next Question</button>
+                    <button type="button" id="submit-assessment" class="submit-button hidden">Submit Assessment</button>
+                </div>
+            </div>
+            
+            <!-- Step 4: Results -->
+            <div id="step-4" class="consultation-step hidden">
+                <h2>Assessment Results</h2>
+                <div class="result-card">
+                    <div class="result-header">
+                        <div class="result-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="result-title">
+                            <h3>Health Status:</h3>
+                            <div class="result-status" id="health-status"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-description" id="result-description"></div>
+                    
+                    <div class="recommendation-section">
+                        <h3>Recommendations:</h3>
+                        <ul id="recommendations-list"></ul>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" id="save-result" class="primary-button">Save to History</button>
+                    <button type="button" id="new-assessment" class="secondary-button">New Assessment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Sample symptoms data (would be fetched from server in production)
+            const symptomsData = [
+                { id: 1, name: "Vomiting" },
+                { id: 2, name: "Diarrhea" },
+                { id: 3, name: "Loss of Appetite" },
+                { id: 4, name: "Lethargy" },
+                { id: 5, name: "Coughing" },
+                { id: 6, name: "Sneezing" },
+                { id: 7, name: "Scratching" },
+                { id: 8, name: "Limping" },
+                { id: 9, name: "Eye Discharge" },
+                { id: 10, name: "Ear Infection" },
+                { id: 11, name: "Bad Breath" },
+                { id: 12, name: "Weight Loss" }
+            ];
+            
+            // Load symptoms buttons
+            function loadSymptoms() {
+                const container = $(".symptoms-container");
+                container.empty();
+                
+                symptomsData.forEach(symptom => {
+                    const button = $(`<button type="button" class="symptom-button" data-id="${symptom.id}">${symptom.name}</button>`);
+                    container.append(button);
+                });
+                
+                // Symptom selection
+                $(".symptom-button").click(function() {
+                    $(this).toggleClass("selected");
+                    updateSelectedSymptomsList();
+                });
+            }
+            
+            // Update selected symptoms list
+            function updateSelectedSymptomsList() {
+                const selectedList = $("#selected-symptoms-list");
+                selectedList.empty();
+                
+                const selectedSymptoms = $(".symptom-button.selected");
+                
+                if (selectedSymptoms.length === 0) {
+                    selectedList.append("<li class='no-symptoms'>No symptoms selected</li>");
+                    $("#proceed-to-questions").prop("disabled", true);
+                } else {
+                    selectedSymptoms.each(function() {
+                        const symptomName = $(this).text();
+                        const symptomId = $(this).data("id");
+                        selectedList.append(`<li data-id="${symptomId}">${symptomName} <button class="remove-symptom" data-id="${symptomId}"><i class="fas fa-times"></i></button></li>`);
+                    });
+                    $("#proceed-to-questions").prop("disabled", false);
+                }
+                
+                // Remove symptom from list and deselect button
+                $(".remove-symptom").click(function(e) {
+                    e.stopPropagation();
+                    const symptomId = $(this).data("id");
+                    $(`.symptom-button[data-id="${symptomId}"]`).removeClass("selected");
+                    updateSelectedSymptomsList();
+                });
+            }
+            
+            // Initialize symptoms
+            loadSymptoms();
+            updateSelectedSymptomsList();
+            
+            // Form validation for step 1
+            function validateStep1() {
+                const petSelected = $("#pet-select").val() !== null && $("#pet-select").val() !== "";
+                const ageSelected = $("#pet-age").val() !== null && $("#pet-age").val() !== "";
+                const weightSelected = $("#pet-weight").val() !== null && $("#pet-weight").val() !== "";
+                const mealDateSelected = $("#meal-date").val() !== null && $("#meal-date").val() !== "";
+                
+                return petSelected && ageSelected && weightSelected && mealDateSelected;
+            }
+            
+            // Event listeners for step 1 fields
+            $("#pet-select, #pet-age, #pet-weight, #meal-date, #meal-time").on('change', function() {
+                if (validateStep1()) {
+                    $("#proceed-to-symptoms").prop("disabled", false);
+                } else {
+                    $("#proceed-to-symptoms").prop("disabled", true);
+                }
+            });
+            
+            // Initialize step 1 button state
+            $("#proceed-to-symptoms").prop("disabled", true);
+            
+            // Navigation between steps
+            $("#proceed-to-symptoms").click(function() {
+                if (validateStep1()) {
+                    $("#step-1").addClass("hidden");
+                    $("#step-2").removeClass("hidden");
+                } else {
+                    let missingFields = [];
+                    if (!$("#pet-select").val()) missingFields.push("pet");
+                    if (!$("#pet-age").val()) missingFields.push("age range");
+                    if (!$("#pet-weight").val()) missingFields.push("weight range");
+                    if (!$("#meal-date").val()) missingFields.push("last meal date");
+                    
+                    alert(`Please select your ${missingFields.join(", ")} before proceeding.`);
+                }
+            });
+            
+            $("#back-to-pet").click(function() {
+                $("#step-2").addClass("hidden");
+                $("#step-1").removeClass("hidden");
+            });
+            
+            $("#proceed-to-questions").click(function() {
+                if ($(".symptom-button.selected").length > 0) {
+                    // Generate follow-up questions based on selected symptoms
+                    generateFollowUpQuestions();
+                    
+                    $("#step-2").addClass("hidden");
+                    $("#step-3").removeClass("hidden");
+                } else {
+                    alert("Please select at least one symptom before proceeding.");
+                }
+            });
+            
+            // Follow-up questions logic
+            let currentQuestionIndex = 0;
+            let questions = [];
+            
+            function generateFollowUpQuestions() {
+                questions = [];
+                
+                // Get selected symptoms
+                const selectedSymptoms = $(".symptom-button.selected");
+                
+                // Generate questions based on selected symptoms
+                selectedSymptoms.each(function() {
+                    const symptomName = $(this).text();
+                    const symptomId = $(this).data("id");
+                    
+                    // Different questions for different symptoms
+                    if (symptomName === "Vomiting") {
+                        questions.push({
+                            id: `vomit-frequency-${symptomId}`,
+                            question: "How frequent is the vomiting?",
+                            type: "radio",
+                            options: ["Once a day", "Multiple times a day", "A few times a week", "Occasionally"]
+                        });
+                        questions.push({
+                            id: `vomit-color-${symptomId}`,
+                            question: "What color is the vomit?",
+                            type: "radio",
+                            options: ["Clear/White", "Yellow/Bile", "Green", "Red/Blood-tinged", "Brown", "Other"]
+                        });
+                    } else if (symptomName === "Diarrhea") {
+                        questions.push({
+                            id: `diarrhea-frequency-${symptomId}`,
+                            question: "How frequent is the diarrhea?",
+                            type: "radio",
+                            options: ["Once a day", "Multiple times a day", "A few times a week", "Occasionally"]
+                        });
+                        questions.push({
+                            id: `diarrhea-color-${symptomId}`,
+                            question: "What color are the stools?",
+                            type: "radio",
+                            options: ["Normal brown", "Yellow/Orange", "Black/Tarry", "Red/Blood-streaked", "Other"]
+                        });
+                    } else if (symptomName === "Loss of Appetite") {
+                        questions.push({
+                            id: `appetite-duration-${symptomId}`,
+                            question: "How long has your pet had loss of appetite?",
+                            type: "radio",
+                            options: ["Less than 24 hours", "1-3 days", "3-7 days", "More than a week"]
+                        });
+                        questions.push({
+                            id: `appetite-water-${symptomId}`,
+                            question: "Is your pet still drinking water?",
+                            type: "radio",
+                            options: ["Yes, normal amount", "Yes, but less than usual", "Very little", "Not at all"]
+                        });
+                    } else {
+                        // Generic questions for other symptoms
+                        questions.push({
+                            id: `duration-${symptomId}`,
+                            question: `How long has your pet been experiencing ${symptomName.toLowerCase()}?`,
+                            type: "radio",
+                            options: ["Less than 24 hours", "1-3 days", "3-7 days", "More than a week"]
+                        });
+                        questions.push({
+                            id: `severity-${symptomId}`,
+                            question: `How severe is the ${symptomName.toLowerCase()}?`,
+                            type: "radio",
+                            options: ["Mild", "Moderate", "Severe"]
+                        });
+                    }
+                });
+                
+                // Set up question navigation
+                currentQuestionIndex = 0;
+                $("#total-questions").text(questions.length);
+                showCurrentQuestion();
+            }
+            
+            function showCurrentQuestion() {
+                if (questions.length === 0) return;
+                
+                const questionContainer = $("#question-container");
+                questionContainer.empty();
+                
+                const question = questions[currentQuestionIndex];
+                
+                // Create question
+                const questionElement = $(`<div class="question"><h3>${question.question}</h3></div>`);
+                
+                // Create options based on question type
+                if (question.type === "radio") {
+                    const optionsContainer = $(`<div class="options-container"></div>`);
+                    
+                    question.options.forEach((option, index) => {
+                        const optionId = `${question.id}-option-${index}`;
+                        const optionElement = $(`
+                            <div class="option">
+                                <input type="radio" id="${optionId}" name="${question.id}" value="${option}">
+                                <label for="${optionId}">${option}</label>
+                            </div>
+                        `);
+                        optionsContainer.append(optionElement);
+                    });
+                    
+                    questionElement.append(optionsContainer);
+                } else if (question.type === "text") {
+                    const textInput = $(`<input type="text" class="text-input" id="${question.id}">`);
+                    questionElement.append(textInput);
+                }
+                
+                questionContainer.append(questionElement);
+                
+                // Update progress
+                $("#current-question").text(currentQuestionIndex + 1);
+                const progressPercent = ((currentQuestionIndex + 1) / questions.length) * 100;
+                $("#question-progress").css("width", `${progressPercent}%`);
+                
+                // Update buttons
+                $("#prev-question").prop("disabled", currentQuestionIndex === 0);
+                
+                if (currentQuestionIndex === questions.length - 1) {
+                    $("#next-question").addClass("hidden");
+                    $("#submit-assessment").removeClass("hidden");
+                } else {
+                    $("#next-question").removeClass("hidden");
+                    $("#submit-assessment").addClass("hidden");
+                }
+            }
+            
+            // Navigation between questions
+            $("#prev-question").click(function() {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    showCurrentQuestion();
+                }
+            });
+            
+            $("#next-question").click(function() {
+                // Validate current question is answered
+                const currentQuestion = questions[currentQuestionIndex];
+                
+                if (currentQuestion.type === "radio") {
+                    if (!$(`input[name="${currentQuestion.id}"]:checked`).val()) {
+                        alert("Please select an option before continuing.");
+                        return;
+                    }
+                } else if (currentQuestion.type === "text") {
+                    if (!$(`#${currentQuestion.id}`).val().trim()) {
+                        alert("Please answer the question before continuing.");
+                        return;
+                    }
+                }
+                
+                if (currentQuestionIndex < questions.length - 1) {
+                    currentQuestionIndex++;
+                    showCurrentQuestion();
+                }
+            });
+            
+            // Submit assessment
+            $("#submit-assessment").click(function() {
+                // Validate last question is answered
+                const currentQuestion = questions[currentQuestionIndex];
+                
+                if (currentQuestion.type === "radio") {
+                    if (!$(`input[name="${currentQuestion.id}"]:checked`).val()) {
+                        alert("Please select an option before submitting.");
+                        return;
+                    }
+                } else if (currentQuestion.type === "text") {
+                    if (!$(`#${currentQuestion.id}`).val().trim()) {
+                        alert("Please answer the question before submitting.");
+                        return;
+                    }
+                }
+                
+                // Collect all answers
+                const answers = {};
+                
+                questions.forEach(question => {
+                    if (question.type === "radio") {
+                        answers[question.id] = $(`input[name="${question.id}"]:checked`).val();
+                    } else if (question.type === "text") {
+                        answers[question.id] = $(`#${question.id}`).val().trim();
+                    }
+                });
+                
+                // For demonstration, show random result
+                // In production, this would be sent to the server for processing by the algorithm
+                displayResults(answers);
+            });
+            
+            // Display results
+            function displayResults(answers) {
+                // Mock result - in production, this would come from the server
+                const resultOptions = [
+                    {
+                        status: "Mild",
+                        className: "mild",
+                        description: "Your pet appears to be experiencing mild symptoms that may not require immediate veterinary care but should be monitored closely.",
+                        recommendations: [
+                            "Continue to monitor your pet's symptoms",
+                            "Ensure your pet has plenty of water",
+                            "Consider a bland diet for 24-48 hours",
+                            "Contact your veterinarian if symptoms worsen"
+                        ]
+                    },
+                    {
+                        status: "Moderate",
+                        className: "moderate",
+                        description: "Your pet is showing signs of moderate distress that may require veterinary attention within the next 24-48 hours.",
+                        recommendations: [
+                            "Schedule a non-emergency vet appointment",
+                            "Monitor your pet closely for any worsening symptoms",
+                            "Ensure your pet stays hydrated",
+                            "Follow dietary restrictions as appropriate for symptoms"
+                        ]
+                    },
+                    {
+                        status: "Critical",
+                        className: "critical",
+                        description: "Your pet is showing signs that could indicate a serious health concern requiring immediate veterinary attention.",
+                        recommendations: [
+                            "Seek immediate veterinary care",
+                            "Do not give any medication without veterinary guidance",
+                            "Keep your pet calm and comfortable during transport",
+                            "Contact emergency veterinary services if outside regular hours"
+                        ]
+                    }
+                ];
+                
+                // For demo, randomly select a result
+                // In production, this would be determined by the algorithm
+                const result = resultOptions[Math.floor(Math.random() * resultOptions.length)];
+                
+                // Display the result
+                $("#health-status").text(result.status).addClass(result.className);
+                $("#result-description").text(result.description);
+                
+                const recommendationsList = $("#recommendations-list");
+                recommendationsList.empty();
+                
+                result.recommendations.forEach(recommendation => {
+                    recommendationsList.append(`<li>${recommendation}</li>`);
+                });
+                
+                // Show results
+                $("#step-3").addClass("hidden");
+                $("#step-4").removeClass("hidden");
+            }
+            
+            // Start a new assessment
+            $("#new-assessment").click(function() {
+                // Reset everything
+                $("#pet-select").val("");
+                $("#pet-age").val("");
+                $("#pet-weight").val("");
+                $("#meal-date").val("");
+                $("#proceed-to-symptoms").prop("disabled", true);
+                $(".symptom-button").removeClass("selected");
+                updateSelectedSymptomsList();
+                $("#health-status").removeClass("mild moderate critical");
+                
+                // Go back to step 1
+                $(".consultation-step").addClass("hidden");
+                $("#step-1").removeClass("hidden");
+            });
+            
+            // Save results functionality (mock)
+            $("#save-result").click(function() {
+                alert("Assessment saved to history!");
+                $(this).prop("disabled", true).text("Saved");
+            });
+        });
+    </script>
+</body>
+</html>

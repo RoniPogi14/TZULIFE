@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #8b5a2b; /* amber-700 */
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-container {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #d97706; /* amber-600 */
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    padding: 16px;
+    flex: 1;
+}
+
+.nav-links ul {
+    list-style: none;
+}
+
+.nav-links li {
+    margin-bottom: 24px;
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Active link style */
+.nav-links a.active {
+    color: #fef3c7; /* amber-100 */
+    font-weight: bold;
+}
+
+.nav-links i {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff; /* amber-100 */
+}
+
+.header {
+    background-color: #dd9847; /* amber-200 */
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-info {
+    text-align: right;
+    margin-right: 8px;
+}
+
+.user-name {
+    font-weight: 500;
+    color: #78350f; /* amber-900 */
+}
+
+/* History Styles */
+.history-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-header {
+    background-color: #dd9847;
+    padding: 10px 20px;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.history-content {
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #dd9847;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.sort-dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.sort-label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.sort-select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+}
+
+.back-button {
+    background-color: #dd9847;
+    color: black;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Table Styles */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed; /* This ensures columns respect their widths */
+}
+
+.history-table th {
+    background-color: #f9f9f9;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.history-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflow text */
+    text-overflow: ellipsis; /* Shows ellipsis for overflow text */
+}
+
+/* Column widths */
+.history-table th:nth-child(1), 
+.history-table td:nth-child(1) {
+    width: 20%; /* Name column */
+}
+
+.history-table th:nth-child(2), 
+.history-table td:nth-child(2) {
+    width: 8%; /* Age column */
+}
+
+.history-table th:nth-child(3), 
+.history-table td:nth-child(3) {
+    width: 12%; /* Weight column */
+}
+
+.history-table th:nth-child(4), 
+.history-table td:nth-child(4) {
+    width: 15%; /* Date column */
+}
+
+.history-table th:nth-child(5), 
+.history-table td:nth-child(5) {
+    width: 25%; /* Symptoms column */
+}
+
+.history-table th:nth-child(6), 
+.history-table td:nth-child(6) {
+    width: 20%; /* Diagnosis column */
+    text-align: center;
+}
+
+.diagnosis-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    color: white;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 14px;
+    width: 80px; /* Fixed width for diagnosis tags */
+}
+
+.mild {
+    background-color: #4CAF50;
+}
+
+.moderate {
+    background-color: #FF9800;
+}
+
+.critical {
+    background-color: #F44336;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.view-button {
+    background-color: #F44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.export-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}

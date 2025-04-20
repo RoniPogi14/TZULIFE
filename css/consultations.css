@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #F5F5F5;
+    color: #000;
+}
+
+.paws {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+header {
+    background-color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.logo h1 {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #FF69B4;
+}
+
+nav a.active {
+    color: #FF69B4;
+    border-bottom: 2px solid #FF69B4;
+}
+
+/* Consultation Section */
+.consultation-section {
+    margin-top: 50px;
+}
+
+.consultation-section h1 {
+    font-size: 48px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 100px;
+    background: linear-gradient(90deg, #030007, #FF69B4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    animation: fadeInDown 1s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.consultation-section h1::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 5px;
+    background-color: #FF1493;
+    margin: 20px auto 0;
+    border-radius: 3px;
+    box-shadow: 0 4px 10px rgba(142, 98, 212, 0.4);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Consultation Options */
+.consultation-options {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 60px 0 70px 0;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin: 0 15px;
+}
+
+.option img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.option:hover img {
+    transform: scale(1.1);
+}
+
+.option span {
+    display: block;
+    margin-top: -70px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 30px;
+    width: 100%;
+}
+
+/* Tagline */
+.tagline {
+    font-style: italic;
+    font-size: 25px;
+    color: gray;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* How it Works Section */
+.how-it-works::before {
+    content: "";
+    position: absolute;
+    top: 60px; /* distance from top of the section */
+    left: 0;
+    width: 100vw; /* full width of viewport */
+    height: 50px;
+    background-color: #f0f0f0;
+    z-index: -1; /* stays behind content */
+}
+
+.how-it-works {
+    position: relative;
+    background: linear-gradient(180deg, #f9f9f9 0%, #fdfaff 100%);
+    padding: 140px 20px 80px; /* push content down to make room for the bar */
+    text-align: center;
+    z-index: 1;
+}
+
+.how-it-works h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #413008;
+    font-weight: bold;
+    position: relative;
+    padding-top: 50px;
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.step {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 40px 25px;
+    width: 320px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease-in-out;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+    border-color: #d2c4f0;
+    box-shadow: 0 14px 28px rgba(90, 62, 133, 0.1);
+}
+
+.step .icon-circle {
+    width: 70px;
+    height: 70px;
+    background-color: #413008;
+    color: #fff;
+    font-size: 1.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.step h3 {
+    color: #3d2c6c;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.step p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Book your Consultation Section */
+.booking-form {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.booking-form h2 {
+    color: #6e44b5;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.booking-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.booking-form label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.booking-form input, .booking-form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.booking-form button {
+    padding: 12px 20px;
+    background-color: #8e62d4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.booking-form button:hover {
+    background-color: #6e44b5;
+}
+
+.booking-wrapper {
+    background-color: #ffffff;
+    padding: 100px 20px 60px; /* <-- more space at the top */
+    margin-top: 50px;
+    border-bottom: 3px solid #8e62d4;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.booking-container {
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 40px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.booking-container h2 {
+    color: #6e44b5;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.booking-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.booking-container label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #444;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.booking-container input,
+.booking-container select {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.booking-container button {
+    padding: 12px 20px;
+    background-color: #8e62d4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.booking-container button:hover {
+    background-color: #6e44b5;
+}

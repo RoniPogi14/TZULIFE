@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TzuLife Dashboard</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="../images/TzuLife-logo.png" alt="TzuLife Logo">
+            </div>
+            <h1 class="brand-name">TZULIFE</h1>
+        </div>
+        
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+            <ul>
+                <li>
+                    <a href="dashboard.html" class="active">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="consultation.html">
+                        <i class="fas fa-stethoscope"></i>
+                        <span>Consultation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="myshih.html">
+                        <i class="fas fa-dog"></i>
+                        <span>My Shih Tzu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dogfood.html">
+                        <i class="fas fa-utensils"></i>
+                        <span>Recommended Dog Food</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="history.html">
+                        <i class="fas fa-history"></i>
+                        <span>Track History</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="header">
+            <div class="user-profile">
+                <div class="user-info">
+                    <div class="user-name">User Profile</div>
+                </div>
+            </div>
+        </header>
+        
+        <main class="dashboard">
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Consultation</h2>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Recommended Dog Food</h2>
+                    </div>
+                </div>
+                
+                <div class="card pet-id-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Next Vaccination Appointment</h2>
+                    </div>
+                    <div class="pet-id-content">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

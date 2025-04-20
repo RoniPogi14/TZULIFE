@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TzuLife Track History</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/history.css">
+</head>
+<body>
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <!-- Logo -->
+        <div class="logo-container">
+            <div class="logo">
+                <img src="TzuLife-logo.png" alt="TzuLife Logo">
+            </div>
+            <h1 class="brand-name">TZULIFE</h1>
+        </div>
+        
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="consultation.html">
+                        <i class="fas fa-stethoscope"></i>
+                        <span>Consultation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="myshih.html">
+                        <i class="fas fa-dog"></i>
+                        <span>My Shih Tzu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dogfood.html">
+                        <i class="fas fa-utensils"></i>
+                        <span>Recommended<br>Dog food</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="history.html" class="active">
+                        <i class="fas fa-history"></i>
+                        <span>Track History</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header with User Profile -->
+        <header class="header">
+            <div class="user-profile">
+                <div class="user-info">
+                    <div class="user-name">User Profile</div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- History Content -->
+        <div class="history-container">
+            <div class="history-header">
+                HISTORY CONSULTATION
+            </div>
+            <div class="history-content">
+                <div class="history-toolbar">
+                    <div class="sort-dropdown">
+                        <span class="sort-label">SORT</span>
+                        <select class="sort-select">
+                            <option value="date">Sort by Date</option>
+                            <option value="name">Sort by Name</option>
+                        </select>
+                    </div>
+                    <button class="back-button" onclick="window.location.href='dashboard.html'">Back</button>
+                </div>
+                
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Name of Shih Tzu</th>
+                            <th>Age</th>
+                            <th>Weight</th>
+                            <th>Date of Consultation</th>
+                            <th>Symptoms</th>
+                            <th>Diagnosis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>pet1</td>
+                            <td>3</td>
+                            <td>6.2 kg</td>
+                            <td>2025-02-05</td>
+                            <td>Coughing</td>
+                            <td><span class="diagnosis-tag mild">Mild</span></td>
+                        </tr>
+                        <tr>
+                            <td>pet2</td>
+                            <td>2</td>
+                            <td>4.8 kg</td>
+                            <td>2025-02-01</td>
+                            <td>Vomiting</td>
+                            <td><span class="diagnosis-tag moderate">Moderate</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="action-buttons">
+                    <button class="view-button">VIEW HISTORY</button>
+                    <button class="export-button">EXPORT REPORT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

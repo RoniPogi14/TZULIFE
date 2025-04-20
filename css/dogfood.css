@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #8b5a2b; /* amber-700 */
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-container {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #d97706; /* amber-600 */
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    padding: 16px;
+    flex: 1;
+}
+
+.nav-links ul {
+    list-style: none;
+}
+
+.nav-links li {
+    margin-bottom: 24px;
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Active link style */
+.nav-links a.active {
+    color: #fef3c7; /* amber-100 */
+    font-weight: bold;
+}
+
+.nav-links i {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff; /* amber-100 */
+}
+
+.header {
+    background-color: #dd9847; /* amber-200 */
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-info {
+    text-align: right;
+    margin-right: 8px;
+}
+
+.user-name {
+    font-weight: 500;
+    color: #78350f; /* amber-900 */
+}
+
+/* Dog Food Recommendation Styles */
+.dogfood-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dogfood-header {
+    background-color: #dd9847;
+    padding: 10px 20px;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.dogfood-content {
+    flex: 1;
+    padding: 0;
+    background-color: white;
+    border: 1px solid #dd9847;
+    position: relative;
+    overflow-y: auto;
+}
+
+.questionnaire {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0;
+    position: relative;
+}
+
+.questionnaire-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.question-group {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.question-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-left: 20px;
+}
+
+.option input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+.option label {
+    font-size: 16px;
+}
+
+.dietary-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-left: 20px;
+}
+
+.dietary-option input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+.dietary-option input[type="text"] {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.generate-button {
+    background-color: #00cc66;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Results Styles */
+.results-container {
+    display: none; /* Initially hidden, will be shown after generate button is clicked */
+    background-color: #dd9847;
+    flex: 1;
+    padding: 0;
+}
+
+.results-header {
+    display: flex;
+    background-color: #dd9847;
+}
+
+.results-header-section {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+}
+
+.results-content {
+    display: flex;
+    background-color: white;
+    height: calc(100% - 50px);
+    padding: 20px;
+}
+
+.results-column {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.dogfood-card {
+    border: 1px solid #c19a6b;
+    border-radius: 20px;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dogfood-title {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+/* Scrollbar Styles */
+.dogfood-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.dogfood-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.dogfood-content::-webkit-scrollbar-thumb {
+    background: #dd9847;
+    border-radius: 10px;
+}
+
+.dogfood-content::-webkit-scrollbar-thumb:hover {
+    background: #c17f1e;
+}
+
+/* JavaScript to toggle between questionnaire and results */
+#questionnaire-section {
+    display: block;
+}
+
+#results-section {
+    display: none;
+}

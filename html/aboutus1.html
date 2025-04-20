@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - TzuLife</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Arsenica:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/aboutus1.css">
+    <link rel="icon" type="image/x-icon" href="../images/TZULIFE Logo.ico">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../images/TzuLife-logo.png" alt="TzuLife Logo">
+            <h1>TZULIFE</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="consultations.html">CONSULTATIONS</a></li>
+                <li><a href="blog.html">BLOG</a></li>
+                <li><a href="aboutus.html" class="active">ABOUT US</a></li>
+                <li><a href="login.html">LOG IN</a></li>
+                <li><a href="signup.html">SIGN UP</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="about-section">
+            <div class="about-image">
+            </div>
+            <div class="about-text">
+                <h2 class="about-title">ABOUT US</h2> 
+                <p>At TZULIFE, we are passionate about improving the health and quality of life of Shih Tzus through technology-driven solutions.
+                    <br> Understanding the unique health needs of this beloved breed, we have developed a web-based platform that integrates machine learning, data science,
+                    <br> and pet health expertise to provide real-time health classification and personalized dog food recommendations.</p> <br><br>
+                
+                <h2>Our Mission</h2>
+                <p>Our mission is to empower Shih Tzu owners with accurate, data-driven insights that help them make informed decisions about their pet's health and nutrition.
+                    <br> We believe that early detection of health issues and proper diet planning can significantly improve a dog's longevity, vitality, and overall well-being.</p> <br><br>
+
+                <h2>What We Do</h2>
+                <p>TZULIFE utilizes advanced Artificial Intelligence (AI) models, specifically:</p>
+                <ul>
+                    ✔ Extreme Gradient Boosting (XGBoost) – A powerful machine learning algorithm that classifies your Shih Tzu's current health status 
+                        <br> based on key symptoms and health indicators. <br><br>
+                    ✔ Shapley Additive Explanations (SHAP) – A cutting-edge explainability tool that provides transparent insights 
+                        <br> into how different factors contribute to your pet's health condition and food recommendations. <br><br>
+                </ul>
+
+            
+                        <p><strong><br>Through our platform, users can:</p></strong> 
+                        <ul>
+                            ✅ Input health symptoms and vital information about their Shih Tzu. <br>
+                            ✅ Receive a real-time classification of their pet's current health status. <br>
+                            ✅ Get science-backed dog food recommendations tailored to their pet's needs. <br>
+                            ✅ Access an intuitive, user-friendly interface that simplifies pet health management. <br><br>
+                        </ul>
+                        <h2> <br> Why TZULIFE?</h2>
+                        <ul>
+                            💡 Technology-Driven: We combine AI, machine learning, and expert insights to deliver precise health evaluations and dietary advice. <br>
+                            🐶 Breed-Specific Focus: Shih Tzus have unique health and dietary needs, and TZULIFE is customized to address them. <br>
+                            🔍 Transparent & Explainable AI: With SHAP, pet owners can understand the reasoning behind health classifications and recommendations. <br>
+                            ❤️ Pet-Centered Approach: We prioritize Shih Tzu health and happiness, ensuring that owners have the right tools to care for their furry companions effectively. <br><br>
+                        </ul>
+                        <h2><br> Join Us in Revolutionizing Shih Tzu Care!</h2>
+                        <p>At TZULIFE, we believe that every Shih Tzu deserves the best care possible. Whether you're a new pet owner or an experienced caregiver,
+                        </br>our platform provides valuable insights that help keep your pup healthy and thriving.</p>
+                        <p>🐾 Your Shih Tzu's health is our priority. 🐾</p> <br><br><br><br>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <a href="aboutus.html" class="back-button">⬅ Back</a>
+    <img src="../images/Paws.png" alt="paws-image" class="paws">
+    <script>
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('nav a');
+
+        // Add click event listener to each link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Remove 'active' class from all links
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                // Add 'active' class to the clicked link
+                this.classList.add('active');
+            });
+        });
+
+        // Function to toggle the display of the additional information
+        function toggleMoreInfo() {
+            const moreInfo = document.getElementById('moreInfo');
+            if (moreInfo.style.display === "none" || moreInfo.style.display === "") {
+                moreInfo.style.display = "block";
+            } else {
+                moreInfo.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

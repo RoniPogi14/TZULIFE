@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif; /* Modern font */
+}
+
+body {
+    min-height: 100vh;
+    background-color: #FDF7FA; /* Softer background */
+    color: #333;
+    line-height: 1.6;
+}
+
+.paws {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Header Styles */
+header {
+    background-color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.logo h1 {
+    color: #333;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: #FF69B4;
+    color: white;
+    border-radius: 8px;
+}
+
+/* About Section */
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 150px;
+}
+
+/* Image Container */
+.about-image {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+}
+
+.about-image img:first-child {
+    width: 450px; /* Adjust the size */
+    height: auto;
+    border-radius: 30px;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 90%, 0% 100%);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.about-image img:last-child {
+    width: 450px;
+    height: auto;
+}
+
+/* Back Button Styling */
+.back-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #65084a;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.back-button:hover {
+    background-color: rgb(236, 32, 195);
+}
+
+.privacy-content {
+    margin-top: 150px !important; /* Forces it to apply */
+    padding: 20px;
+    padding-top: 50px;
+    padding-top: 150px;
+}
+
+.introduction-section {
+    display: block; /* Ensure it's a block element */
+    margin-top: 300px; /* Adjust as needed */
+}
+
+/* Add background highlight to each section */
+section {
+    background: #F9E6F0; /* Light pink background */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.policy-container {
+    max-width: 900px;
+    margin: 150px auto; /* Center content & add spacing */
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #65084a;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #FF69B4;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #65084a;
+    font-weight: bold;
+    margin-top: 30px;
+    text-align: left;
+}
+
+/* List Styles */
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #444;
+}
+
+footer a {
+    color: #FF69B4;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer {
+    text-align: center; /* Moves text to the center */
+    margin-left: 50px; /* Adjust the space as needed */
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

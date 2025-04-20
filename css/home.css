@@ -1,0 +1,728 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url('../images/homePic.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #F5F5F5; /* Fallback color */
+}
+
+header {
+    background-color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.logo h1 {
+    color: #333;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+nav ul li {
+    position: relative;
+}
+
+/* Change color to pink when hovering */
+nav ul li a:hover {
+    color: #FF69B4;
+    transform: scale(1.1);
+}
+
+/* Keep the active page pink */
+nav ul li a.active {
+    color: #FF69B4 !important;
+    border-bottom: 2px solid #FF69B4;
+}
+
+/* Default Navigation Link Style */
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    padding: 10px 15px;
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px; /* Adjust thickness */
+    background-color: #ff69b4; /* Change to match your theme */
+    transform: scaleX(0); /* Hidden by default */
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1); /* Expands when hovered */
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 180px;
+    top: 100%;
+    left: 0;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 10;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 5px 15px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #ff4081;
+    color: white;
+    border-radius: 3px;
+}
+
+/* Show dropdown when hovering over CONSULTATIONS */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #FF69B4;
+}
+
+nav a.active {
+    color: #FF69B4;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7rem 4rem 2rem;
+    gap: 2rem;
+    min-height: 100vh;
+    position: relative;
+}
+
+.hero-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    text-align: center; /* Ensures text inside stays centered */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-text h2 {
+    font-size: 4rem;
+    color: #543303;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-shadow: 5px -3px 0px rgb(246, 245, 245); 
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    color: #FF69B4;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-shadow: 5px -3px 0px rgb(246, 245, 245); 
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #070000;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    text-align: center;
+    text-shadow: 2px 1px 0px rgb(246, 245, 245); 
+}
+
+.hero-text button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background-color: #FF69B4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+}
+
+.hero-text button:hover {
+    background-color: #FF1493;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.7);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    animation: floatHero 3s infinite ease-in-out;
+}
+
+@keyframes floatHero {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.paws {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 8rem 1rem 2rem;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .hero-text button {
+        width: 100%;
+    }
+}
+
+/* Footer Section */
+.tzulife-footer {
+    background: linear-gradient(to top, #ffd1dc, #ffffff); /* Soft pink gradient */
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Black & White Top Design */
+.footer-top-design img {
+    width: 10%;
+    display: block;
+}
+
+.footer-top-design {
+    background-image: url('../images/dog-banner.jpeg'); /* Adjust path as needed */
+    background-size: cover; /* Ensures the image covers the div */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    height: 200px; /* Adjust based on your design */
+}
+
+/* Shih Tzu Image Animation */
+.footer-shih-tzu {
+    width: 150px;
+    margin-top: -30px;
+    border-radius: 50%;
+    border: 5px solid white;
+    background: white;
+    animation: floatImage 4s infinite ease-in-out;
+}
+
+/* Floating Animation */
+@keyframes floatImage {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Footer Content */
+.footer-content p {
+    font-size: 16px;
+    margin: 10px 20px;
+    color: #000;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    animation: fadeInFooter 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeInFooter {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Social Media Icon Effects */
+.facebook-link img {
+    width: 150px;
+    margin-top: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Remove Facebook Icon Styling */
+.facebook-link {
+    display: none;
+}
+
+.facebook-link img:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.5));
+}
+
+/* Scroll Reveal Effect */
+.tzulife-footer.visible .footer-content p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Black & White Bottom Design */
+.footer-bottom-design img {
+    width: 100%;
+    display: block;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #6e0669; /* Adjust color if needed */
+    color: white;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+
+.consultation-section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.consultation-section h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.consultation-options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.option img {
+    width: 90px;
+    height: 90px;
+    transition: transform 0.3s ease;
+}
+
+.option:hover {
+    transform: scale(1.1);
+}
+
+/* Email Icon Styling */
+.email-link img {
+    width: 60px; /* Adjust size */
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Hover Effect: Scale Up, Rotate Slightly & Add Glow */
+.email-link img:hover {
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.7));
+}
+
+/* If using text instead of an icon */
+.email-link {
+    display: inline-block;
+    font-size: 18px;
+    color: #FF69B4; /* Pink theme */
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
+.dog-banner {
+    width: 100vw; /* Full width of the viewport */
+    height: 100px; /* Adjust height as needed */
+    background-image: url('../images/header.png'); /* Use the correct path */
+    background-repeat: repeat-x; /* Repeats the image horizontally */
+    background-size: auto 100%; /* Ensures the image scales properly */
+    background-position: left center;
+}
+
+/* Why Choose TZULIFE Section */
+.why-choose-us {
+    background-color: #f7f7f7;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.why-choose-us h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: #593c8f;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    color: #593c8f;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.feature p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #fff6f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonials h2 {
+    color: #593c8f;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.testimonial-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.testimonial {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    max-width: 300px;
+    font-style: italic;
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: scale(1.03);
+}
+
+.testimonial span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #593c8f;
+}
+
+/* Gallery Section */
+.gallery {
+    background-color: #e6d2b7;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: 2rem;
+    color: #593c8f;
+    margin-bottom: 30px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Force 5 columns */
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 210px; /* Smaller height */
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid img {
+        height: 130px;
+    }
+}
+
+/* (call to action) CTA Banner Styling */
+.cta-banner {
+    background: linear-gradient(135deg, #eed9f0, #cbb7f1);
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 30px;
+    margin: 50px auto;
+    max-width: 1000px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.cta-banner h2 {
+    font-size: 2rem;
+    color: #5d3c88;
+    margin-bottom: 15px;
+}
+
+.cta-banner p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.cta-banner button {
+    background-color: #5d3c88;
+    color: #fff;
+    padding: 14px 30px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-banner button:hover {
+    background-color: #7b56a3;
+}
+
+/* Video Section */
+.video-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fef9ff;
+}
+
+.video-section h2 {
+    color: #5d3c88;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.video-section p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.video-container iframe {
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: #fff7fb;
+    padding: 50px 20px;
+    text-align: center;
+}
+.faq-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #5d3c88;
+}
+.faq {
+    max-width: 700px;
+    margin: 20px auto;
+    text-align: left;
+}
+.faq h4 {
+    font-size: 1.2rem;
+    color: #333;
+}
+.faq p {
+    color: #555;
+    margin-top: 5px;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+  /* FAQ sub-menu*/
+.faq-section {
+    padding: 60px 20px;
+    background-color: #fff8f0; /* optional: makes it more distinct */
+    scroll-margin-top: 100px; /* helps anchor scroll position */
+}

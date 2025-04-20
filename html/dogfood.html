@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TzuLife Dog Food Recommendations</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/dogfood.css">
+</head>
+<body>
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <!-- Logo -->
+        <div class="logo-container">
+            <div class="logo">
+                <img src="TzuLife-logo.png" alt="TzuLife Logo">
+            </div>
+            <h1 class="brand-name">TZULIFE</h1>
+        </div>
+        
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="consultation.html">
+                        <i class="fas fa-stethoscope"></i>
+                        <span>Consultation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="myshih.html">
+                        <i class="fas fa-dog"></i>
+                        <span>My Shih Tzu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dogfood.html" class="active">
+                        <i class="fas fa-utensils"></i>
+                        <span>Recommended<br>Dog food</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="history.html">
+                        <i class="fas fa-history"></i>
+                        <span>Track History</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header with User Profile -->
+        <header class="header">
+            <div class="user-profile">
+                <div class="user-info">
+                    <div class="user-name">User Profile</div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Dog Food Recommendation Content -->
+        <div class="dogfood-container">
+            <!-- Questionnaire Section -->
+            <div id="questionnaire-section">
+                <div class="dogfood-header">
+                    DOG FOOD RECOMMENDATION
+                </div>
+                <div class="dogfood-content">
+                    <div class="questionnaire">
+                        <div class="questionnaire-title">Choose the dog food traits you prefer.</div>
+                        
+                        <!-- Age Question -->
+                        <div class="question-group">
+                            <div class="question-title">What is your dog's age?</div>
+                            <div class="option">
+                                <input type="checkbox" id="puppy" name="age" value="puppy">
+                                <label for="puppy">Puppy (0-1 year)</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" id="adult" name="age" value="adult">
+                                <label for="adult">Adult (1-7 years)</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" id="senior" name="age" value="senior">
+                                <label for="senior">Senior (7+ years)</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Question -->
+                        <div class="question-group">
+                            <div class="question-title">What is your Shih Tzu's size?</div>
+                            <div class="option">
+                                <input type="checkbox" id="small" name="size" value="small">
+                                <label for="small">Small (under 5 kg)</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" id="medium" name="size" value="medium">
+                                <label for="medium">Medium (5-9 kg)</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" id="large" name="size" value="large">
+                                <label for="large">Large (over 9 kg)</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Activity Level Question -->
+                        <div class="question-group">
+                            <div class="question-title">What is your Shih Tzu's activity level?</div>
+                            <div class="option">
+                                <input type="checkbox" id="low" name="activity" value="low">
+                                <label for="low">Low (couch potato)</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" id="moderate" name="activity" value="moderate">
+                                <label for="moderate">Moderate (occasional walks)</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" id="high" name="activity" value="high">
+                                <label for="high">High (active and playful)</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Dietary Restrictions Question -->
+                        <div class="question-group">
+                            <div class="question-title">Does your Shih Tzu have any dietary restrictions or allergies?</div>
+                            <div class="dietary-option">
+                                <input type="checkbox" id="yes-restrictions" name="restrictions" value="yes">
+                                <label for="yes-restrictions">Yes (please specify:)</label>
+                                <input type="text" id="restrictions-text" name="restrictions-text">
+                            </div>
+                            <div class="dietary-option">
+                                <input type="checkbox" id="no-restrictions" name="restrictions" value="no">
+                                <label for="no-restrictions">No</label>
+                            </div>
+                        </div>
+                        
+                        <a href="RDF1.html" class="generate-button">GENERATE</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Results Section (initially hidden) -->
+            <div id="results-section">
+                <div class="results-header">
+                    <div class="results-header-section">BEST OPTION/s</div>
+                    <div class="results-header-section">ALTERNATIVE OPTION/s</div>
+                </div>
+                <div class="results-content">
+                    <div class="results-column">
+                        <div class="dogfood-card">
+                            <div class="dogfood-title">DOG FOOD INFORMATION</div>
+                            <!-- Best option content would go here -->
+                        </div>
+                    </div>
+                    <div class="results-column">
+                        <div class="dogfood-card">
+                            <div class="dogfood-title">DOG FOOD INFORMATION</div>
+                            <!-- Alternative option content would go here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Function to show results and hide questionnaire
+        function showResults() {
+            document.getElementById('questionnaire-section').style.display = 'none';
+            document.getElementById('results-section').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

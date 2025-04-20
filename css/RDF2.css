@@ -1,0 +1,95 @@
+body {
+    padding-top: 50px;
+}
+
+.title {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0 40px 0;
+}
+
+/* center the cards inside the container without destroying the grid style */
+.container {
+    padding: 20px;
+}
+
+.container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.card {
+    float: left;
+    display: flex;
+    align-items: center;
+    background-color: #b08f6d;
+    width: 35%;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+
+.image-wrapper {
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.text {
+    width: 60%;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+.text h2 {
+    font-size: 23px;
+    margin: 0;
+}
+
+.text p {
+    font-size: 14px;
+    margin: 5px 0 0;
+}
+
+.nextBtn {
+   background: none;
+   border: none;
+   position: absolute;
+   bottom: 20px;
+   right: 20px;
+}
+
+.nextBtn .brownPaw {
+    width: 150px;
+    height: 150px;
+}
+
+.nextBtn a {
+    position: absolute;
+    bottom: 50px;
+    right: 65px;
+    color: white;
+    text-decoration: none;
+}
+
+.paws {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.1;
+    pointer-events: none;
+}
