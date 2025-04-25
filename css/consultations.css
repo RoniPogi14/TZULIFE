@@ -74,6 +74,48 @@ nav a.active {
     border-bottom: 2px solid #FF69B4;
 }
 
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 180px;
+    top: 100%;
+    left: 0;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 10;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 5px 15px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #ff4081;
+    color: white;
+    border-radius: 3px;
+}
+
+/* Show dropdown when hovering over CONSULTATIONS */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 /* Consultation Section */
 .consultation-section {
     margin-top: 50px;

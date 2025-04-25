@@ -7,7 +7,7 @@
 
 body {
     min-height: 100vh;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     color: #000;
 }
 
@@ -47,6 +47,7 @@ nav ul {
     display: flex;
     list-style: none;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
 nav a {
@@ -54,48 +55,106 @@ nav a {
     color: #333;
     font-weight: bold;
     padding: 0.5rem 1rem;
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
 
 nav a:hover {
-    color: #FF69B4;
+    color: #ff69b4;
+    background-color: rgba(255, 105, 180, 0.1);
+    border-radius: 5px;
 }
 
-nav a.active {
-    color: #FF69B4;
-    border-bottom: 2px solid #FF69B4;
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 180px;
+    top: 100%;
+    left: 0;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 10;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 5px 15px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #ff4081;
+    color: white;
+    border-radius: 3px;
+}
+
+/* Show dropdown when hovering over ABOUT US */
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
 
 /* About Section */
+main {
+    padding-top: 100px;
+}
+
 .about-section {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: 150px;
+    margin: 50px 20px;
 }
 
-/* Image Container */
-.about-image {
+.about-container {
     display: flex;
-    align-items: center;
-    gap: 40px;
-    justify-content: center;
+    align-items: center; /* Align items vertically centered */
+    justify-content: center; /* Align items horizontally centered */
+    gap: 20px; /* Space between images */
 }
 
-.about-image img:first-child {
-    width: 450px; /* Adjust the size */
+.about-container img:first-child {
+    width: 450px;
     height: auto;
-    border-radius: 30px;
-    clip-path: polygon(10% 0%, 90% 0%, 100% 90%, 0% 100%);
+    border-radius: 15px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.about-image img:last-child {
-    width: 450px;
-    height: auto;
+.option {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s;
 }
 
+.option:hover {
+    transform: scale(1.05);
+}
+
+.about-text {
+    font-size: 1rem;
+    color: #333;
+    padding: 10px;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Paws Background Animation */
 .paws {
     position: fixed;
     bottom: 0;
@@ -103,4 +162,52 @@ nav a.active {
     width: 100%;
     opacity: 0.1;
     pointer-events: none;
+    animation: floatPaw 6s ease-in-out infinite;
+}
+
+@keyframes floatPaw {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .about-container {
+        flex-direction: column; /* Stack images vertically on mobile */
+        gap: 15px;
+    }
+
+    .about-container img:first-child {
+        width: 80%;
+    }
+}
+
+.about-container img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-container img:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* More intense shadow */
+}
+
+.option img {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.option:hover img {
+    transform: translateY(-10px); /* Lift effect */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow */
 }

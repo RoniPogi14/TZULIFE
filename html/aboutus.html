@@ -21,30 +21,56 @@
         <nav>
             <ul>
                 <li><a href="home.html">HOME</a></li>
-                <li><a href="consultations.html">CONSULTATIONS</a></li>
-                <li><a href="blog.html">BLOG</a></li>
-                <li><a href="aboutus.html" class="active">ABOUT US</a></li>
+                
+                <li class="dropdown">
+                    <a href="consultations.html">CONSULTATIONS</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Weight.html">Weight</a></li>
+                        <li><a href="age.html">Age</a></li>
+                        <li><a href="symptoms.html">Symptoms</a></li>
+                    </ul>
+                </li>
+    
+                <li class="dropdown">
+                    <a href="blog.html">BLOG</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Blog1.html">Health Guide</a></li>
+                        <li><a href="Blog2.html">Deadly Viruses</a></li>
+                        <li><a href="Blog3.html">Essential Vaccines</a></li>
+                    </ul>
+                </li>
+    
+                <li class="dropdown">
+                    <a href="aboutus.html">ABOUT US</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="aboutus.html">Get to Know Us</a></li>
+                      <li><a href="home.html#faq">Frequently Asked Questions</a></li>
+                    </ul>
+                  </li>
+    
                 <li><a href="login.html">LOG IN</a></li>
                 <li><a href="signup.html">SIGN UP</a></li>
             </ul>
         </nav>
-    </header>
+    </header> 
+
     <main>
         <section class="about-section">
-            <div class="about-image">
+            <div class="about-container">
                 <img src="../images/cuteShih.jpg" alt="Cute Shih Tzu">
-
-                <div class="about-image">
-                    <button class="option" onclick="location.href='aboutus1.html'">
-                    <a href="aboutus1.html" class="About Us 1">
-                        <img src="../images/Gettoknow.png" alt="Get to know">
-                    </a>
-                    </button>
-                </div>
+        
+                <a href="aboutus1.html" class="option">
+                    <img src="../images/Gettoknow.png" alt="Get to know">
+                </a>
+        
                 <div class="about-text">
+                    <!-- You can add text here later -->
                 </div>
+            </div>
         </section>
+
         <img src="../images/Paws.png" alt="paws-image" class="paws">
     </main>
+    
 </body>
 </html>

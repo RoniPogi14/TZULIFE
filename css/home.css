@@ -81,7 +81,6 @@ nav ul li a {
     transition: all 0.3s ease-in-out;
 }
 
-
 nav ul li a::after {
     content: "";
     position: absolute;
@@ -135,7 +134,7 @@ nav ul li a:hover::after {
     border-radius: 3px;
 }
 
-/* Show dropdown when hovering over CONSULTATIONS */
+/* Show dropdown when hovering over HOME */
 .dropdown:hover .dropdown-menu {
     display: block;
 }
@@ -720,7 +719,7 @@ html {
     scroll-behavior: smooth;
   }
 
-  /* FAQ sub-menu*/
+/* FAQ sub-menu*/
 .faq-section {
     padding: 60px 20px;
     background-color: #fff8f0; /* optional: makes it more distinct */

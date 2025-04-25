@@ -76,6 +76,55 @@ nav a.active {
     border-bottom: 2px solid #FF69B4;
 }
 
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 180px;
+    top: 100%;
+    left: 0;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 10;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 5px 15px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #ff4081;
+    color: white;
+    border-radius: 3px;
+}
+
+/* Show dropdown when hovering over HOME */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* FAQ sub-menu*/
+.faq-section {
+    padding: 60px 20px;
+    background-color: #fff8f0; /* optional: makes it more distinct */
+    scroll-margin-top: 100px; /* helps anchor scroll position */
+}
+
 .blog-title {
     font-size: 48px;
     font-weight: 900;
