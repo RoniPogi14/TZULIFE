@@ -57,6 +57,7 @@ nav ul {
     display: flex;
     list-style: none;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
 nav a {
@@ -118,12 +119,6 @@ nav a.active {
     display: block;
 }
 
-/* FAQ sub-menu*/
-.faq-section {
-    padding: 60px 20px;
-    background-color: #fff8f0; /* optional: makes it more distinct */
-    scroll-margin-top: 100px; /* helps anchor scroll position */
-}
 
 .blog-title {
     font-size: 48px;
